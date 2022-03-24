@@ -1,0 +1,6 @@
+directory:C:\dev\java\comp-6481\assignment2\sales-system\src\Data\1
+	file:C:\dev\java\comp-6481\assignment2\sales-system\src\Data\1\Tom.txt
+directory:C:\dev\java\comp-6481\assignment2\sales-system\src\Data\2
+	file:C:\dev\java\comp-6481\assignment2\sales-system\src\Data\2\Sam.txt
+directory:C:\dev\java\comp-6481\assignment2\sales-system\src\Data\3
+	file:C:\dev\java\comp-6481\assignment2\sales-system\src\Data\3\Harry.txt
