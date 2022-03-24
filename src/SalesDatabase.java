@@ -134,6 +134,7 @@ public class SalesDatabase {
                 addRecords(newSale);
             } else {
                 System.out.println("# Duplicate record: " + newSale.toString());
+//                throw new DuplicateRecordException("Error: duplicate record -> " + newSale.toString());
             }
         }
     }
