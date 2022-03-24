@@ -3,6 +3,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 
+/**
+ * @author Anagh Mehran
+ */
 public class SalesDatabase {
     static ArrayList<Sales> salesArr = new ArrayList<>();
     private static int userChoice = 0;
@@ -37,6 +40,10 @@ public class SalesDatabase {
         }
     }
 
+    /**
+     * Class creates the output file. Writes all the records currently in the list of sales to output.txt in root
+     * directory.
+     */
     private static void writeToOutput() {
         if (salesArr.size() > 0) {
             try (FileWriter fw = new FileWriter("output.txt")) {
@@ -53,6 +60,11 @@ public class SalesDatabase {
         }
     }
 
+    /**
+     * Handles user option 2 which displays data from files, and adds records to database.
+     *
+     * @throws InvalidFileException
+     */
     private static void processFiles() throws InvalidFileException {
         File logFile = new File(workingDir, "log.txt");
         if (!logFile.exists() || !logFile.isFile()) {
@@ -113,8 +125,23 @@ public class SalesDatabase {
             }
         });
         // implement binary search
+        int indexOfOrder = binSearch(0, salesArr.size() - 1, order_ID, 1);
+        return (indexOfOrder >= 0) ? salesArr.get(indexOfOrder) : null;
+    }
 
-        return null;
+    private static int binSearch(int sp, int ep, long toFind, int steps) {
+        if (ep >= sp) {
+            int middle = sp + ep / 2;
+            if (salesArr.get(middle).equals(toFind)) {
+                System.out.println("Steps to find order_ID: " + toFind + " = " + steps);
+                return middle;
+            } else if (salesArr.get(middle).getOrder_ID() < toFind) {
+                return binSearch(sp, middle - 1, toFind, steps + 1);
+            } else if (salesArr.get(middle).getOrder_ID() > toFind) {
+                return binSearch(middle + 1, ep, toFind, steps + 1);
+            }
+        }
+        return -1;
     }
 
     /**

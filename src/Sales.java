@@ -1,5 +1,8 @@
 import java.util.Date;
 
+/**
+ * @author Anagh Mehran
+ */
 public class Sales {
     private String country;
     private String item_type;
